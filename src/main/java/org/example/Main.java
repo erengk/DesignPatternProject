@@ -1,10 +1,10 @@
 package org.example;
 
-import org.example.components.MainPage;
+import org.example.constituents.MainPageConstituent;
 
 public class Main {
     public static void main(String[] args) {
-        MainPage mainPage = new MainPage();
-        mainPage.showMainPage();
+        MainPageConstituent mainPageConstituent = new MainPageConstituent();
+        mainPageConstituent.showMainPage();
     }
 }
