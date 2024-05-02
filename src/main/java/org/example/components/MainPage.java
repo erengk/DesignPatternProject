@@ -1,5 +1,7 @@
 package org.example.components;
 
+import static org.example.components.CreateRecipeComponent.scanner;
+
 public class MainPage {
     public static void showMainPage() {
 
@@ -18,8 +20,8 @@ public class MainPage {
             System.out.println("==================================");
 
             System.out.print("Enter your choice: ");
-            //int choice = scanner.nextInt();
-            int choice = 0;
+            int choice = scanner.nextInt();
+            //int choice = 0;
             try {
                 choice = Integer.parseInt(System.console().readLine());
             } catch (Exception e) {
@@ -70,6 +72,6 @@ public class MainPage {
 
             System.out.println();
         }
-        //scanner.close();
+        scanner.close();
     }
 }
