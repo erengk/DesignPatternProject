@@ -4,14 +4,16 @@ import org.example.entities.abstracts.RecipeAbstract;
 import org.example.modules.ratings.abstracts.RatingComputationStrategyAbstract;
 
 public class AverageRatingStrategyAbstractConcrete implements RatingComputationStrategyAbstract {
-    @Override
-    public void updateRatings(RecipeAbstract recipeAbstract, int rating) {
-        recipeAbstract.setTotalRatings(recipeAbstract.getTotalRatings() + 1);
-        recipeAbstract.setAverageRating((recipeAbstract.getAverageRating() * (recipeAbstract.getTotalRatings() - 1) + rating) / recipeAbstract.getTotalRatings());
+    public void updateRatings(RecipeAbstract recipe, int rating) {
+        int totalRatings = recipe.getTotalRatings() + 1;
+        double newAverage = (recipe.getAverageRating() * (totalRatings - 1) + rating) / (double) totalRatings;
+
+        recipe.setTotalRatings(totalRatings);
+        recipe.setAverageRating(newAverage);
     }
 
     @Override
-    public double computeImpact(RecipeAbstract recipeAbstract) {
-        return recipeAbstract.getAverageRating();
+    public double computeImpact(RecipeAbstract recipe) {
+        return recipe.getAverageRating();
     }
 }
